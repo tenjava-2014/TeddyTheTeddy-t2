@@ -55,7 +55,7 @@ public class MainTimer extends BukkitRunnable {
 
         for (Location l : toRemove) {
             pl.getLoadedTransmutationStructures().remove(l);
-            l.getWorld().createExplosion(l, 10, true);
+            l.getWorld().createExplosion(l.getX(), l.getY(), l.getZ(), 10, false, false);
         }
 
         for (Location l : toSet.keySet()) {
