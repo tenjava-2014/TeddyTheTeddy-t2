@@ -1,3 +1,8 @@
-name: TeddyTheTeddy-t2
+name: Sunmutation-TenJava-TeddyTheTeddy-t2
 main: com.tenjava.entries.TeddyTheTeddy.t2.TenJava
 version: '${project.version}'
+author: TeddyTheTeddy
+
+permissions:
+  sunmutation.do:
+    default: true
