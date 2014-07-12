@@ -16,15 +16,63 @@ public class Util {
     public static boolean checkStructure(Location mainBlock){
         Location l = mainBlock.add(0, -1, 0);
 
-        if(l.clone().add(1,0,0).getBlock().getType() == Material.GLOWSTONE){
-            if(l.clone().add(0,0,1).getBlock().getType() == Material.GLOWSTONE){
-                if(l.clone().add(1,0,1).getBlock().getType() == Material.GLOWSTONE){
-                    if(l.clone().add(-1,0,0).getBlock().getType() == Material.GLOWSTONE){
-                        if(l.clone().add(0,0,-1).getBlock().getType() == Material.GLOWSTONE){
-                            if(l.clone().add(-1,0,-1).getBlock().getType() == Material.GLOWSTONE){
-                                if(l.clone().add(1,0,-1).getBlock().getType() == Material.GLOWSTONE){
-                                    if(l.clone().add(-1,0,1).getBlock().getType() == Material.GLOWSTONE){
-                                        return true;
+        if(l.clone().add(1,0,0).getBlock().getType() == Material.PACKED_ICE){
+            if(l.clone().add(0,0,1).getBlock().getType() == Material.PACKED_ICE){
+                if(l.clone().add(1,0,1).getBlock().getType() == Material.PACKED_ICE){
+                    if(l.clone().add(-1,0,0).getBlock().getType() == Material.PACKED_ICE){
+                        if(l.clone().add(0,0,-1).getBlock().getType() == Material.PACKED_ICE){
+                            if(l.clone().add(-1,0,-1).getBlock().getType() == Material.PACKED_ICE){
+                                if(l.clone().add(1,0,-1).getBlock().getType() == Material.PACKED_ICE){
+                                    if(l.clone().add(-1,0,1).getBlock().getType() == Material.PACKED_ICE){
+                                        if(l.clone().add(2,0,0).getBlock().getType() == Material.QUARTZ_BLOCK){
+                                            if(l.clone().add(0,0,2).getBlock().getType() == Material.QUARTZ_BLOCK){
+                                                if(l.clone().add(-2,0,0).getBlock().getType() == Material.QUARTZ_BLOCK){
+                                                    if(l.clone().add(0,0,-2).getBlock().getType() == Material.QUARTZ_BLOCK){
+                                                        if(l.clone().add(2,0,2).getBlock().getType() == Material.GLOWSTONE){
+                                                            if(l.clone().add(-2,0,2).getBlock().getType() == Material.GLOWSTONE){
+                                                                if(l.clone().add(2,0,-2).getBlock().getType() == Material.GLOWSTONE){
+                                                                    if(l.clone().add(-2,0,-2).getBlock().getType() == Material.GLOWSTONE){
+                                                                        if(l.clone().add(-2,1,-2).getBlock().getType() == Material.DAYLIGHT_DETECTOR){
+                                                                            if(l.clone().add(2,1,-2).getBlock().getType() == Material.DAYLIGHT_DETECTOR){
+                                                                                if(l.clone().add(-2,1,2).getBlock().getType() == Material.DAYLIGHT_DETECTOR){
+                                                                                    if(l.clone().add(2,1,2).getBlock().getType() == Material.DAYLIGHT_DETECTOR){
+                                                                                        return true;
+                                                                                    } else{
+                                                                                        return false;
+                                                                                    }
+                                                                                } else{
+                                                                                    return false;
+                                                                                }
+                                                                            } else{
+                                                                                return false;
+                                                                            }
+                                                                        } else{
+                                                                            return false;
+                                                                        }
+                                                                    } else{
+                                                                        return false;
+                                                                    }
+                                                                } else{
+                                                                    return false;
+                                                                }
+                                                            } else{
+                                                                return false;
+                                                            }
+                                                        } else{
+                                                            return false;
+                                                        }
+                                                    } else{
+                                                        return false;
+                                                    }
+                                                } else{
+                                                    return false;
+                                                }
+                                            } else{
+                                                return false;
+                                            }
+                                        } else{
+                                            return false;
+                                        }
                                     } else{
                                         return false;
                                     }
