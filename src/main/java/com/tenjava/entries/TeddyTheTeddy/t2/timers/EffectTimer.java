@@ -28,8 +28,8 @@ public class EffectTimer extends BukkitRunnable {
         }
 
         for(Location l : pl.getLoadedTransmutationStructures().keySet()){
-            if(Util.checkLight(l)) {
-                l.getWorld().playEffect(l, Effect.STEP_SOUND, l.getBlock().getTypeId());
+            if(Util.checkLight(l.clone())) {
+                l.getWorld().playEffect(l, Effect.STEP_SOUND, 10);
                 if (tick == 0) {
                     l.getWorld().playSound(l, Sound.ANVIL_LAND, 1, 2);
                 } else {
