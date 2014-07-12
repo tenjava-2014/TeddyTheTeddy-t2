@@ -67,7 +67,7 @@ public class MainTimer extends BukkitRunnable {
     private void spawnFirework(Location l){
         Firework firework = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK);
         FireworkMeta fireworkMeta = firework.getFireworkMeta();
-        FireworkEffect effect = FireworkEffect.builder().flicker(false).trail(false).withColor(Color.GREEN).withColor(Color.AQUA).withFade(Color.PURPLE).build();
+        FireworkEffect effect = FireworkEffect.builder().flicker(false).trail(false).withColor(Color.GREEN).withFade(Color.PURPLE).build();
         fireworkMeta.addEffect(effect);
 
         fireworkMeta.setPower(0);
