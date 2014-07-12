@@ -46,3 +46,4 @@ You should get something like:
 
 About
 -----
+This plugin allows you to transmute blocks into other blocks.

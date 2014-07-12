@@ -11,15 +11,19 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.Random;
+
 /**
  * Created by Thomas on 12/07/2014.
  */
 public class MainListeners implements Listener {
 
     private final TenJava pl;
+    private final Random random;
 
     public MainListeners(TenJava pl) {
         this.pl = pl;
+        random = new Random();
     }
 
     @EventHandler
@@ -49,7 +53,7 @@ public class MainListeners implements Listener {
                             } else {
                                 if (Util.checkStructure(event.getClickedBlock().getLocation())) {
                                     event.getPlayer().sendMessage(ChatColor.GREEN + "Transmutation has started!");
-                                    pl.getLoadedTransmutationStructures().put(event.getClickedBlock().getLocation(), 1);
+                                    pl.getLoadedTransmutationStructures().put(event.getClickedBlock().getLocation(), random.nextInt(10)+1);
                                 } else {
                                     event.getPlayer().sendMessage(ChatColor.RED + "Invalid Transmutation Structure");
                                 }
