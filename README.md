@@ -31,7 +31,11 @@ Usage
 1. Install plugin
 2. Reload/ Reboot your server
 3. Build a structure like the one below:
-<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRx9UP54rwRn4zT9q1uiWyx7YwYQ3xMc8zgQro3Dd-ZnmRM4Z3lU4VA3g" />
+[![Transmutation Structure](http://i.imgur.com/tNXmS5q.png)](#)
+4. Place the block you want to convert to (Can be Iron block, Gold Block, Diamond Block, Emerald Block)
+5. Place the block you want to convert, the teir down. (Can be Coal Block, Iron Block, Gold Block, Diamond Block)
+[![Transmutation Possibilities](http://i.imgur.com/j4NC53G.png)](#)
+6. Right-Click the top block with a nether star
 
 <!-- Hi, TeddyTheTeddy! This is the default README for every ten.java submission. -->
 <!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
