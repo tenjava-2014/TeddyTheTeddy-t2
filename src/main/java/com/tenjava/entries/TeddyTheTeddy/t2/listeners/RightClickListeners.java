@@ -36,7 +36,7 @@ public class RightClickListeners implements Listener {
                 if (pl.getBlockFromTo().containsKey(event.getClickedBlock().getType())) {
                     if (pl.getBlockFromTo().get(event.getClickedBlock().getType()) == event.getClickedBlock().getLocation().add(0, -1, 0).getBlock().getType()) {
                         if (event.getPlayer().hasPermission("sunmutation.do")) {
-                            if(pl.getLoadedTransmutationStructures().containsKey(event.getClickedBlock().getLocation())){
+                            if (pl.getLoadedTransmutationStructures().containsKey(event.getClickedBlock().getLocation())) {
                                 event.getPlayer().sendMessage(ChatColor.RED + "Structure is already transmuting!");
                             } else {
                                 if (Util.checkStructure(event.getClickedBlock().getLocation())) {

@@ -102,27 +102,28 @@ public class Util {
 
     /**
      * Checks to see if the structure has the correct amount of light
+     *
      * @param mainBlock Main structure block
      * @return Is light acceptable
      */
-    public static boolean checkLight(Location mainBlock){
+    public static boolean checkLight(Location mainBlock) {
         Location l = mainBlock.add(0, 2, 0);
 
-        if(l.getWorld().getTime() >= 0 && l.getWorld().getTime() <= 12500 && !l.getWorld().isThundering()){
-            for(int i = l.getBlockY()+1; i < 256; i++){
+        if (l.getWorld().getTime() >= 0 && l.getWorld().getTime() <= 12500 && !l.getWorld().isThundering()) {
+            for (int i = l.getBlockY() + 1; i < 256; i++) {
                 Location l1 = mainBlock.clone();
                 l1.setY(i);
 
-                if(l1.clone().add(2,0,2).getBlock().getType() != Material.AIR){
+                if (l1.clone().add(2, 0, 2).getBlock().getType() != Material.AIR) {
                     return false;
-                } else{
-                    if(l1.clone().add(-2,0,2).getBlock().getType() != Material.AIR){
+                } else {
+                    if (l1.clone().add(-2, 0, 2).getBlock().getType() != Material.AIR) {
                         return false;
-                    } else{
-                        if(l1.clone().add(2,0,-2).getBlock().getType() != Material.AIR){
+                    } else {
+                        if (l1.clone().add(2, 0, -2).getBlock().getType() != Material.AIR) {
                             return false;
-                        } else{
-                            if(l1.clone().add(-2,0,-2).getBlock().getType() != Material.AIR){
+                        } else {
+                            if (l1.clone().add(-2, 0, -2).getBlock().getType() != Material.AIR) {
                                 return false;
                             }
                         }
@@ -130,7 +131,7 @@ public class Util {
                 }
             }
             return true;
-        } else{
+        } else {
             return false;
         }
     }

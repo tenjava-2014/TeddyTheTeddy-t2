@@ -1,7 +1,6 @@
 package com.tenjava.entries.TeddyTheTeddy.t2;
 
 import com.tenjava.entries.TeddyTheTeddy.t2.listeners.RightClickListeners;
-import com.tenjava.entries.TeddyTheTeddy.t2.timers.EffectTimer;
 import com.tenjava.entries.TeddyTheTeddy.t2.timers.MainTimer;
 import org.bukkit.Location;
 import org.bukkit.Material;
