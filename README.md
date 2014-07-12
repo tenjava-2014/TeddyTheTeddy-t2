@@ -29,7 +29,9 @@ Usage
 -----
 
 1. Install plugin
-2. Do things with it
+2. Reload/ Reboot your server
+3. Build a structure like the one below:
+<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRx9UP54rwRn4zT9q1uiWyx7YwYQ3xMc8zgQro3Dd-ZnmRM4Z3lU4VA3g" />
 
 <!-- Hi, TeddyTheTeddy! This is the default README for every ten.java submission. -->
 <!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
