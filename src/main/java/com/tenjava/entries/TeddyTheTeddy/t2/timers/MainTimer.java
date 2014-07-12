@@ -1,5 +1,7 @@
-package com.tenjava.entries.TeddyTheTeddy.t2;
+package com.tenjava.entries.TeddyTheTeddy.t2.timers;
 
+import com.tenjava.entries.TeddyTheTeddy.t2.TenJava;
+import com.tenjava.entries.TeddyTheTeddy.t2.Util;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Sound;

@@ -1,6 +1,8 @@
 package com.tenjava.entries.TeddyTheTeddy.t2;
 
 import com.tenjava.entries.TeddyTheTeddy.t2.listeners.RightClickListeners;
+import com.tenjava.entries.TeddyTheTeddy.t2.timers.EffectTimer;
+import com.tenjava.entries.TeddyTheTeddy.t2.timers.MainTimer;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,6 +21,7 @@ public class TenJava extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(new RightClickListeners(this), this);
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new MainTimer(this), 20 * 20, 20 * 20);
+        this.getServer().getScheduler().runTaskTimerAsynchronously(this, new EffectTimer(this), 0, 1);
         populateBlockFromToMap();
         loadTransmutationStructures();
     }
