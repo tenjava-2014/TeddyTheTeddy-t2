@@ -2,13 +2,12 @@ package com.tenjava.entries.TeddyTheTeddy.t2.timers;
 
 import com.tenjava.entries.TeddyTheTeddy.t2.TenJava;
 import com.tenjava.entries.TeddyTheTeddy.t2.Util;
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.FallingSand;
+import org.bukkit.entity.Firework;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -39,10 +38,12 @@ public class MainTimer extends BukkitRunnable {
                         toRemove.add(l);
                         if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
                             FallingBlock block = l.getWorld().spawnFallingBlock(l, pl.getBlockFromTo().get(l.getBlock().getType()), (byte) 0);
-                            block.setVelocity(new Vector(0, 0.5, 0));
+                            block.setVelocity(new Vector(0, 1.5, 0));
                             l.getWorld().playSound(l, Sound.LEVEL_UP, 1, 1);
                             l.getWorld().playEffect(l, Effect.MOBSPAWNER_FLAMES, 10);
                             l.getBlock().setType(Material.AIR);
+
+                            spawnFirework(l);
                         }
                     } else {
                         toSet.put(l, pl.getLoadedTransmutationStructures().get(l) - 1);
@@ -61,5 +62,16 @@ public class MainTimer extends BukkitRunnable {
         for (Location l : toSet.keySet()) {
             pl.getLoadedTransmutationStructures().put(l, toSet.get(l));
         }
+    }
+
+    private void spawnFirework(Location l){
+        Firework firework = (Firework) l.getWorld().spawnEntity(l, EntityType.FIREWORK);
+        FireworkMeta fireworkMeta = firework.getFireworkMeta();
+        FireworkEffect effect = FireworkEffect.builder().flicker(false).trail(false).withColor(Color.GREEN).withColor(Color.AQUA).withFade(Color.PURPLE).build();
+        fireworkMeta.addEffect(effect);
+
+        fireworkMeta.setPower(0);
+        firework.setFireworkMeta(fireworkMeta);
+        firework.detonate();
     }
 }
