@@ -21,7 +21,7 @@ public class TenJava extends JavaPlugin {
 
         this.getServer().getPluginManager().registerEvents(new MainListeners(this), this);
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new MainTimer(this), 20 * 20, 20 * 20);
-        this.getServer().getScheduler().runTaskTimerAsynchronously(this, new EffectTimer(this), 10, 10);
+        this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new EffectTimer(this), 10, 10);
         populateBlockFromToMap();
         loadTransmutationStructures();
     }
