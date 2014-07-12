@@ -29,7 +29,7 @@ public class MainTimer extends BukkitRunnable {
         Map<Location, Integer> toSet = new HashMap<Location, Integer>();
         for (Location l : pl.getLoadedTransmutationStructures().keySet()) {
             if (Util.checkStructure(l)) {
-                if (pl.getLoadedTransmutationStructures().get(l) <= 0) {
+                if (pl.getLoadedTransmutationStructures().get(l) == 0) {
                     toRemove.add(l);
                     if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
                         l.getBlock().setType(pl.getBlockFromTo().get(l.getBlock().getType()));

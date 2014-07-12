@@ -41,7 +41,7 @@ public class RightClickListeners implements Listener {
                             } else {
                                 if (Util.checkStructure(event.getClickedBlock().getLocation())) {
                                     event.getPlayer().sendMessage(ChatColor.GREEN + "Transmutation has started!");
-                                    pl.getLoadedTransmutationStructures().put(event.getClickedBlock().getLocation(), 10);
+                                    pl.getLoadedTransmutationStructures().put(event.getClickedBlock().getLocation(), 1);
                                 } else {
                                     event.getPlayer().sendMessage(ChatColor.RED + "Invalid Transmutation Structure");
                                 }
