@@ -32,12 +32,11 @@ public class MainTimer extends BukkitRunnable {
     public void run() {
         List<Location> toRemove = new ArrayList<Location>();
         Map<Location, Integer> toSet = new HashMap<Location, Integer>();
-        List<Location> toRemoveNoExplode = new ArrayList<Location>();
         for (Location l : pl.getLoadedTransmutationStructures().keySet()) {
             if (Util.checkStructure(l.clone())) {
                 if(Util.checkLight(l.clone())) {
                     if (pl.getLoadedTransmutationStructures().get(l) == 0) {
-                        toRemoveNoExplode.add(l);
+                        toRemove.add(l);
                         if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
                             FallingBlock block = l.getWorld().spawnFallingBlock(l, pl.getBlockFromTo().get(l.getBlock().getType()), (byte) 0);
                             block.setVelocity(new Vector(0, 0.5, 0));
@@ -61,10 +60,6 @@ public class MainTimer extends BukkitRunnable {
 
         for (Location l : toSet.keySet()) {
             pl.getLoadedTransmutationStructures().put(l, toSet.get(l));
-        }
-
-        for(Location l : toRemoveNoExplode){
-            pl.getLoadedTransmutationStructures().remove(l);
         }
     }
 }
