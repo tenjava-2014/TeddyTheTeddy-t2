@@ -28,7 +28,7 @@ public class MainTimer extends BukkitRunnable {
         List<Location> toRemove = new ArrayList<Location>();
         Map<Location, Integer> toSet = new HashMap<Location, Integer>();
         for (Location l : pl.getLoadedTransmutationStructures().keySet()) {
-            if (Util.checkStructure(l.clone())) {
+            if (Util.checkStructure(l.clone()) && Util.checkLight(l.clone())) {
                 if (pl.getLoadedTransmutationStructures().get(l) == 0) {
                     toRemove.add(l);
                     if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
