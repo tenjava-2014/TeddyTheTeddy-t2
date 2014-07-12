@@ -4,8 +4,12 @@ import com.tenjava.entries.TeddyTheTeddy.t2.TenJava;
 import com.tenjava.entries.TeddyTheTeddy.t2.Util;
 import org.bukkit.Effect;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -52,6 +56,9 @@ public class MainTimer extends BukkitRunnable {
 
         for (Location l : toSet.keySet()) {
             pl.getLoadedTransmutationStructures().put(l, toSet.get(l));
+            FallingBlock block = l.getWorld().spawnFallingBlock(l, l.getBlock().getType(), (byte) 0);
+            block.setVelocity(new Vector(0, 0.2,  0));
+            l.getBlock().setType(Material.AIR);
         }
     }
 }
