@@ -103,15 +103,19 @@ public class Util {
     public static boolean checkLight(Location mainBlock){
         Location l = mainBlock.add(0, 2, 0);
         if(l.clone().add(2, 0, 2).getBlock().getBlockPower() <= 4){
+            System.out.println("Block +2 +2");
             return false;
         } else{
             if(l.clone().add(-2, 0, 2).getBlock().getBlockPower() <= 4){
+                System.out.println("Block -2 +2");
                 return false;
             } else{
                 if(l.clone().add(2, 0, -2).getBlock().getBlockPower() <= 4){
+                    System.out.println("Block +2 -2");
                     return false;
                 } else{
                     if(l.clone().add(-2, 0, -2).getBlock().getBlockPower() <= 4){
+                        System.out.println("Block -2 -2");
                         return false;
                     } else{
                         return true;
