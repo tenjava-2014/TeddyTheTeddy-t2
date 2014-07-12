@@ -37,10 +37,9 @@ public class MainTimer extends BukkitRunnable {
                     if (pl.getLoadedTransmutationStructures().get(l) == 0) {
                         toRemove.add(l);
                         if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
-                            l.getBlock().setType(pl.getBlockFromTo().get(l.getBlock().getType()));
+                            l.getWorld().spawnFallingBlock(l, pl.getBlockFromTo().get(l.getBlock().getType()), (byte) 0).setVelocity(new Vector(0, 0.75, 0));
                             l.getWorld().playSound(l, Sound.LEVEL_UP, 1, 1);
                             l.getWorld().playEffect(l, Effect.MOBSPAWNER_FLAMES, 10);
-                            l.getWorld().spawnFallingBlock(l, l.getBlock().getType(), (byte) 0).setVelocity(new Vector(0, 0.75, 0));
                             l.getBlock().setType(Material.AIR);
                         }
                     } else {
