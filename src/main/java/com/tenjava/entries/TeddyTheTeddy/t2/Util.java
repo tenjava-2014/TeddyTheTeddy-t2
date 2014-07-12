@@ -102,26 +102,31 @@ public class Util {
 
     public static boolean checkLight(Location mainBlock){
         Location l = mainBlock.add(0, 2, 0);
-        if(l.clone().add(2, 0, 2).getBlock().getBlockPower() <= 4){
-            System.out.println("Block +2 +2");
-            return false;
-        } else{
-            if(l.clone().add(-2, 0, 2).getBlock().getBlockPower() <= 4){
-                System.out.println("Block -2 +2");
-                return false;
-            } else{
-                if(l.clone().add(2, 0, -2).getBlock().getBlockPower() <= 4){
-                    System.out.println("Block +2 -2");
+
+        if(l.getWorld().getTime() >= 0 && l.getWorld().getTime() <= 12500){
+            for(int i = l.getBlockY()+1; i < 256; i++){
+                Location l1 = mainBlock.clone();
+                l1.setY(i);
+
+                if(l1.clone().add(2,0,2).getBlock().getType() != Material.AIR){
                     return false;
                 } else{
-                    if(l.clone().add(-2, 0, -2).getBlock().getBlockPower() <= 4){
-                        System.out.println("Block -2 -2");
+                    if(l1.clone().add(-2,0,2).getBlock().getType() != Material.AIR){
                         return false;
                     } else{
-                        return true;
+                        if(l1.clone().add(2,0,-2).getBlock().getType() != Material.AIR){
+                            return false;
+                        } else{
+                            if(l1.clone().add(-2,0,-2).getBlock().getType() != Material.AIR){
+                                return false;
+                            }
+                        }
                     }
                 }
             }
+            return true;
+        } else{
+            return false;
         }
     }
 }
