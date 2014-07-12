@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
+import org.bukkit.entity.FallingSand;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -37,7 +38,8 @@ public class MainTimer extends BukkitRunnable {
                     if (pl.getLoadedTransmutationStructures().get(l) == 0) {
                         toRemove.add(l);
                         if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
-                            l.getWorld().spawnFallingBlock(l, pl.getBlockFromTo().get(l.getBlock().getType()), (byte) 0).setVelocity(new Vector(0, 0.75, 0));
+                            FallingBlock block = l.getWorld().spawnFallingBlock(l, pl.getBlockFromTo().get(l.getBlock().getType()), (byte) 0);
+                            block.setVelocity(new Vector(0, 0.75, 0));
                             l.getWorld().playSound(l, Sound.LEVEL_UP, 1, 1);
                             l.getWorld().playEffect(l, Effect.MOBSPAWNER_FLAMES, 10);
                             l.getBlock().setType(Material.AIR);
