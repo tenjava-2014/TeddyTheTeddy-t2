@@ -1,6 +1,7 @@
 package com.tenjava.entries.TeddyTheTeddy.t2.timers;
 
 import com.tenjava.entries.TeddyTheTeddy.t2.TenJava;
+import com.tenjava.entries.TeddyTheTeddy.t2.Util;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -27,11 +28,13 @@ public class EffectTimer extends BukkitRunnable {
         }
 
         for(Location l : pl.getLoadedTransmutationStructures().keySet()){
-            l.getWorld().playEffect(l, Effect.STEP_SOUND, 145);
-            if(tick == 0){
-                l.getWorld().playSound(l, Sound.ANVIL_LAND, 2, 1);
-            } else {
-                l.getWorld().playSound(l, Sound.ANVIL_LAND, 1, 1);
+            if(Util.checkLight(l)) {
+                l.getWorld().playEffect(l, Effect.STEP_SOUND, l.getBlock().getTypeId());
+                if (tick == 0) {
+                    l.getWorld().playSound(l, Sound.ANVIL_LAND, 1, 2);
+                } else {
+                    l.getWorld().playSound(l, Sound.ANVIL_LAND, 1, 1);
+                }
             }
         }
     }

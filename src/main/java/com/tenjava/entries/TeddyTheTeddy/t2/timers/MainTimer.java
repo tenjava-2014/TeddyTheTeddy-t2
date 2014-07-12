@@ -28,16 +28,18 @@ public class MainTimer extends BukkitRunnable {
         List<Location> toRemove = new ArrayList<Location>();
         Map<Location, Integer> toSet = new HashMap<Location, Integer>();
         for (Location l : pl.getLoadedTransmutationStructures().keySet()) {
-            if (Util.checkStructure(l.clone()) && Util.checkLight(l.clone())) {
-                if (pl.getLoadedTransmutationStructures().get(l) == 0) {
-                    toRemove.add(l);
-                    if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
-                        l.getBlock().setType(pl.getBlockFromTo().get(l.getBlock().getType()));
-                        l.getWorld().playSound(l, Sound.LEVEL_UP, 1, 1);
-                        l.getWorld().playEffect(l, Effect.MOBSPAWNER_FLAMES, 10);
+            if (Util.checkStructure(l.clone())) {
+                if(Util.checkLight(l.clone())) {
+                    if (pl.getLoadedTransmutationStructures().get(l) == 0) {
+                        toRemove.add(l);
+                        if (pl.getBlockFromTo().containsKey(l.getBlock().getType())) {
+                            l.getBlock().setType(pl.getBlockFromTo().get(l.getBlock().getType()));
+                            l.getWorld().playSound(l, Sound.LEVEL_UP, 1, 1);
+                            l.getWorld().playEffect(l, Effect.MOBSPAWNER_FLAMES, 10);
+                        }
+                    } else {
+                        toSet.put(l, pl.getLoadedTransmutationStructures().get(l) - 1);
                     }
-                } else {
-                    toSet.put(l, pl.getLoadedTransmutationStructures().get(l) - 1);
                 }
             } else {
                 toRemove.add(l);
